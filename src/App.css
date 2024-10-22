@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #3b0f0f;
+  color: #f0e0d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  max-width: 60rem;
+  margin: 7rem auto 0;
+}
+
+header {
+  text-align: center;
+  color: #f0e0d6;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #b29b8c;
+  margin-bottom: 2rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+header nav > a {
+  text-decoration: none;
+  border: 1px solid #b29b8c;
+  padding: 0.5rem 2rem;
+  color: #b29b8c;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header nav > a:hover {
+  background-color: #b29b8c;
+  color: #3b0f0f;
+}
+
+header nav > .active {
+  background-color: #3b0f0f;
+  color: #f0e0d6;
+}
+
+.booklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book {
+  background-color: #f5e3d1;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.book h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #3b0f0f;
+}
+
+.bookInfo p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #3b0f0f;
+}
+
+.bookInfo p span {
+  font-weight: bold;
+  color: #3b0f0f;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #b29b8c;
+  color: #3b0f0f;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #3b0f0f;
+  color: #f0e0d6;
+}
+
+.btnForm {
+  padding: 0.7rem 1.5rem;
+  background-color: #b29b8c;
+  border: none;
+  color: #3b0f0f;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.btnForm:disabled {
+  background-color: #d3c3b3;
+  color: #7b5c5c;
+}
+
+.btnForm:hover:enabled {
+  background-color: #3b0f0f;
+  color: #f0e0d6;
+}
+
+.noBooks {
+  font-size: 1.2rem;
+  color: #b29b8c;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 30rem;
+  margin: 0 auto;
+  background-color: #e3d3c3;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.form-field {
+  text-align: left;
+  color: #3b0f0f;
+  position: relative;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #b29b8c;
+  border-radius: 0.3rem;
+  background-color: #f0e0d6;
+  color: #3b0f0f;
+}
+
+.form-field input::placeholder {
+  color: #b29b8c;
+}
+
+.form-field select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #4c3320;
+  background-color: #d4b89d;
+  border: 2px solid #4c3320;
+  border-radius: 5px;
+  appearance: none;
+  cursor: pointer;
+  padding-right: 40px;
+}
+
+.form-field select:focus {
+  outline: none;
+  background-color: #caa784;
+}
+
+.form-field select::-ms-expand {
+  display: none;
+}
+
+.form-field select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f5ece2;
+  color: #4c3320;
+}
