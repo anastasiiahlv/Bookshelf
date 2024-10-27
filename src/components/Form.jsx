@@ -2,7 +2,6 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 const Form = ({ book, handleSubmit }) => {
-
     const [bookState, setBookState] = useState({
         Title: book ? book.Title : '',
         Author: book ? book.Author : '',
@@ -10,6 +9,8 @@ const Form = ({ book, handleSubmit }) => {
         Status: book ? book.Status : '',
         Rating: book ? book.Rating : '',
     });
+
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setBookState({
@@ -20,12 +21,18 @@ const Form = ({ book, handleSubmit }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        if (bookState.Rating === '' || bookState.Rating < 1 || bookState.Rating > 5) {
+            setError('Значення має бути між 1 та 5.');
+            return;
+        }
+
         handleSubmit({
             Id: book ? book.Id : uuidv4(),
             date: new Date(),
             ...bookState
         });
         setBookState({ Title: '', Author: '', Tag: '', Status: '', Rating: '' });
+        setError(''); 
     };
 
     const inputField = (label, name, type = 'text', placeholder = '') => {
@@ -38,14 +45,11 @@ const Form = ({ book, handleSubmit }) => {
                     value={bookState[name]}
                     onChange={handleChange}
                     placeholder={placeholder}
-                    min={type === 'number' ? 1 : undefined} 
-                    max={type === 'number' ? 5 : undefined} 
                 />
             </div>
         );
     };
 
-    // Додаємо випадаючий список для статусу
     const selectField = (label, name, options) => {
         return (
             <div className="form-field">
@@ -54,7 +58,9 @@ const Form = ({ book, handleSubmit }) => {
                     name={name}
                     value={bookState[name]}
                     onChange={handleChange}
+                    required
                 >
+                    <option value="">Оберіть статус</option>
                     {options.map((option, index) => (
                         <option key={index} value={option}>
                             {option}
@@ -72,8 +78,9 @@ const Form = ({ book, handleSubmit }) => {
             {inputField('Book Title', 'Title', 'text', 'Enter book title')}
             {inputField('Book Author', 'Author', 'text', 'Enter book author')}
             {inputField('Book Tag', 'Tag', 'text', 'Enter tags (e.g. fiction, mystery)')}
-            {selectField('Book Status', 'Status', ['Reading', 'Finished', 'To Read'])} {/* Випадаючий список */}
+            {selectField('Book Status', 'Status', ['Reading', 'Finished', 'To Read'])}
             {inputField('Book Rating', 'Rating', 'number', 'Rate from 1 to 5')}
+            {error && <p className="error-message">{error}</p>}
             <button type='submit' className='btnForm' disabled={disabledSubmit}>
                 {book ? 'Update' : 'Submit'}
             </button>
@@ -82,5 +89,4 @@ const Form = ({ book, handleSubmit }) => {
 };
 
 export default Form;
-
 

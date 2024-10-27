@@ -3,7 +3,7 @@ import useLocalStorage from "./UseLocalStorage";
 
 export const BookContext = createContext();
 
-const BookProvider = ({ children }) => {
+const BookshelfContext = ({ children }) => {
   const [books, setBooks] = useLocalStorage('books', []);
 
   const value = { books, setBooks }
@@ -15,4 +15,4 @@ const BookProvider = ({ children }) => {
   )
 }
 
-export default BookProvider
+export default BookshelfContext;

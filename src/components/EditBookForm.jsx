@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { BookContext } from '../BookshelfContext';
 import Form from "./Form"
 
-const EditBook = () => {
+const EditBookForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { books, setBooks } = useContext(BookContext);
@@ -24,4 +24,4 @@ const EditBook = () => {
   );
 }
 
-export default EditBook;
+export default EditBookForm;

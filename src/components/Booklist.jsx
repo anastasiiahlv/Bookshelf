@@ -6,14 +6,14 @@ const Booklist = () => {
     const { books, setBooks } = useContext(BookContext);
 
     const handleRemoveBook = (Id) => {
-        const filteredBooks = books.filter(book => book.Id !== Id);  // Фільтруємо книги за унікальним Id
+        const filteredBooks = books.filter(book => book.Id !== Id); 
         setBooks(filteredBooks);
     };
 
     return (
         <div className='booklist'>
             {books.length ? books.map(book => (
-                <Book book={book} key={book.Id} handleRemoveBook={handleRemoveBook} />  // Використовуємо 'book.Id' як унікальний ключ
+                <Book book={book} key={book.Id} handleRemoveBook={handleRemoveBook} />  
             )) : (
                 <p className='noBooks'>No books</p>
             )}

@@ -214,3 +214,7 @@ header nav > .active {
   background-color: #f5ece2;
   color: #4c3320;
 }
+
+.error-message {
+  color: #4c3320;
+}
